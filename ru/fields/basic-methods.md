@@ -856,6 +856,7 @@ Enum::make('Status')
 
 Для редактирования полей в режиме preview, например в таблице или в любом другом `IterableComponent`, существуют следующие методы.
 
+<a name="update-on-preview"></a>
 ### updateOnPreview
 
 Метод `updateOnPreview()` позволяет редактировать поле в режиме предварительного просмотра. После внесения изменений (по событию onChange), значение поля будет сохранено для конкретного элемента.
@@ -881,6 +882,7 @@ public function updateOnPreview(
 Text::make('Name')->updateOnPreview()
 ```
 
+<a name="with-update-row"></a>
 ### withUpdateRow
 
 `withUpdateRow()` работает по аналогии с `updateOnPreview()`, но при этом может полностью обновить строку в таблице без перезагрузки страницы.

@@ -852,6 +852,7 @@ Enum::make('Status')
 
 For editing fields in preview mode, such as in a table or any other `IterableComponent`, there are the following methods.
 
+<a name="update-on-preview"></a>
 ### updateOnPreview
 
 The `updateOnPreview()` method allows editing a field in preview mode. After making changes (onChange event), the value of the field will be saved for the specific item.
@@ -877,6 +878,7 @@ public function updateOnPreview(
 Text::make('Name')->updateOnPreview()
 ```
 
+<a name="with-update-row"></a>
 ### withUpdateRow
 
 `withUpdateRow()` works similarly to `updateOnPreview()`, but can completely update the row in the table without reloading the page.
