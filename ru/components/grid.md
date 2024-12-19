@@ -3,7 +3,7 @@
 Для расположения элементов на странице можно использовать компонент `Grid`.
 
 ```php
-make(iterable $components = [])
+make(iterable $components = [], int $gap = 6)
 ```
 
 Чтобы расположить элементы внутри Grid, используется компонент `Column`.
@@ -31,15 +31,17 @@ use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Fields\Text;
 
 Grid::make([
-    Column::make([
+    Column::make(
+        [
             Text::make(fake()->text())
         ],
         colSpan: 6,
         adaptiveColSpan: 6
     ),
-    Column::make([
-        Text::make(fake()->text())
-    ],
+    Column::make(
+        [
+            Text::make(fake()->text())
+        ],
         colSpan: 6,
         adaptiveColSpan: 6
     ),
