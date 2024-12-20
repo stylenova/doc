@@ -21,8 +21,8 @@
 Отображать компонент можно по условию, воспользовавшись методом `canSee()`.
 
 ```php
-Block::make()
-    ->canSee(function (Block $ctx) {
+Box::make()
+    ->canSee(function (Box $ctx) {
         return true;
     })
 ```
@@ -34,8 +34,8 @@ when($value = null, ?callable $callback = null, ?callable $default = null)
 ```
 
 ```php
-Block::make()
-    ->when(fn() => true, fn(Block $ctx) => $ctx)
+Box::make()
+    ->when(fn() => true, fn(Box $ctx) => $ctx)
 ```
 
 Метод `unless()` обратный методу `when()`.
@@ -54,7 +54,7 @@ customView(string $view, array $data = [])
 ```
 
 ```php
-Block::make('Title', [])->customView('component.my-custom-block')
+Box::make('Title', [])->customView('component.my-custom-block')
 ```
 
 <a name="on-before-render"></a>
@@ -70,7 +70,7 @@ public function onBeforeRender(Closure $onBeforeRender): static
 ```
 
 ```php
-Block::make('Title', [])->onBeforeRender(function(Block $ctx) {
+Box::make('Title', [])->onBeforeRender(function(Box $ctx) {
     // 
 })
 ```
@@ -81,7 +81,7 @@ Block::make('Title', [])->onBeforeRender(function(Block $ctx) {
 Для добавления ассетов на лету можно использовать метод `addAssets()`.
 
 ```php
-Block::make()
+Box::make()
     ->addAssets([
         new Css(Vite::asset('resources/css/block.css'))
     ]),
@@ -125,7 +125,7 @@ protected function booted(): void
 ```php
 MoonShineComponent::macro('myMethod', fn() => /*реализация*/)
 
-Block::make()->myMethod()
+Box::make()->myMethod()
 ```
 
 или
@@ -135,7 +135,7 @@ Block::make()->myMethod()
 MoonShineComponent::mixin(new MyNewMethods())
 
 // для конкретного
-Block::mixin(new MyNewMethods())
+Box::mixin(new MyNewMethods())
 ```
 
 <a name="custom"></a>

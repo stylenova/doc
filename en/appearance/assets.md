@@ -222,7 +222,7 @@ protected function onLoad(): void
 #### On the Fly
 
 ```php
-Block::make()->addAssets([
+Box::make()->addAssets([
     Js::make('/js/custom.js'),
     Css::make('/css/styles.css')
 ]);

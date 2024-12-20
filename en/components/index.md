@@ -21,8 +21,8 @@ Almost everything in *MoonShine* consists of components. The *MoonShineComponent
 You can conditionally display a component using the `canSee()` method.
 
 ```php
-Block::make()
-    ->canSee(function (Block $ctx) {
+Box::make()
+    ->canSee(function (Box $ctx) {
         return true;
     })
 ```
@@ -34,8 +34,8 @@ when($value = null, ?callable $callback = null, ?callable $default = null)
 ```
 
 ```php
-Block::make()
-    ->when(fn() => true, fn(Block $ctx) => $ctx)
+Box::make()
+    ->when(fn() => true, fn(Box $ctx) => $ctx)
 ```
 
 The `unless()` method is the opposite of the `when()` method.
@@ -54,7 +54,7 @@ customView(string $view, array $data = [])
 ```
 
 ```php
-Block::make('Title', [])->customView('component.my-custom-block')
+Box::make('Title', [])->customView('component.my-custom-block')
 ```
 
 <a name="on-before-render"></a>
@@ -70,7 +70,7 @@ public function onBeforeRender(Closure $onBeforeRender): static
 ```
 
 ```php
-Block::make('Title', [])->onBeforeRender(function(Block $ctx) {
+Box::make('Title', [])->onBeforeRender(function(Box $ctx) {
     // 
 })
 ```
@@ -81,7 +81,7 @@ Block::make('Title', [])->onBeforeRender(function(Block $ctx) {
 To add assets on the fly, you can use the `addAssets()` method.
 
 ```php
-Block::make()
+Box::make()
     ->addAssets([
         new Css(Vite::asset('resources/css/block.css'))
     ]),
@@ -125,7 +125,7 @@ All components have access to the `Illuminate\Support\Traits\Macroable` trait, w
 ```php
 MoonShineComponent::macro('myMethod', fn() => /*implementation*/)
 
-Block::make()->myMethod()
+Box::make()->myMethod()
 ```
 
 or
@@ -135,7 +135,7 @@ or
 MoonShineComponent::mixin(new MyNewMethods())
 
 // for a specific one
-Block::mixin(new MyNewMethods())
+Box::mixin(new MyNewMethods())
 ```
 
 <a name="custom"></a>
