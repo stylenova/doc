@@ -49,13 +49,13 @@ Grid::make([
 ```
 tab: Blade
 ```blade
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="6" colSpan="6">
+<x-moonshine::layout.grid>
+    <x-moonshine::layout.column adaptiveColSpan="6" colSpan="6">
         {{ fake()->text() }}
-    </x-moonshine::column>
-    <x-moonshine::column adaptiveColSpan="6" colSpan="6">
+    </x-moonshine::layout.column>
+    <x-moonshine::layout.column adaptiveColSpan="6" colSpan="6">
         {{ fake()->text() }}
-    </x-moonshine::column>
-</x-moonshine::grid>
+    </x-moonshine::layout.column>
+</x-moonshine::layout.grid>
 ```
 ~~~
