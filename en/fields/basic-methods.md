@@ -373,14 +373,16 @@ As a result, the name attribute will look like `<input name="options[name]>`. Th
 Sometimes it is necessary to store two values in one input field. For example, under a display condition one of the fields may become invisible but still exist in the DOM and be sent with the request.
 
 ```php
-File::make('image') // this is displayed in showWhen under one condition
-File::make('image') // this is displayed in showWhen under another condition
+File::make('image') // this is displayed in DOM under one condition
+//...
+File::make('image') // this is displayed in DOM under another condition
 ```
 
 To change the name attribute of these fields, the `virtualName` method is used.
 
 ```php
 File::make('image')->virtualColumn('image_1')
+//...
 File::make('image')->virtualColumn('image_2')
 ```
 
@@ -1076,6 +1078,17 @@ Text::make('Name')
 ```
 
 In this example, the field "Name" will only be displayed if the value of the field "category_id" is equal to 1, 2, or 3.
+
+When the showWhen condition is present on a field, hiding this field sets its DOM element to display:none and removes the name attribute so that the value of this hidden field does not end up in the final request. If you do not want the name attribute to be removed, you need to set the $submitShowWhen flag to true in your resource.
+
+```php
+class ArticleResource extends ModelResource
+{
+    protected bool $submitShowWhen = true;
+    
+    //...
+}
+```
 
 <a name="show-when-date"></a>
 ### showWhenDate Method
